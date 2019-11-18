@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace FightSim
 {
     class Fighter
     {
+        protected static RestClient client = new RestClient("https://digimon-api.herokuapp.com/api/digimon");
+
         private int hp = 100;
 
         public string name;
