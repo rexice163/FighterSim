@@ -10,6 +10,8 @@ namespace FightSim
 {
     class MegaSeadramon : Fighter
     {
+        static Random Generator = new Random();
+
         int hp = 175;
 
         static RestRequest request = new RestRequest("MegaSeadramon");
@@ -23,6 +25,10 @@ namespace FightSim
             Console.WriteLine(megaseadramon.name);
 
             Console.ReadLine();
+        }
+        public override int Attack()
+        {
+            return Generator.Next(26);
         }
     }
 }

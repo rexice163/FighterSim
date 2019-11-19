@@ -12,20 +12,14 @@ namespace FightSim
     {
         static void Main(string[] args)
         {
-            Fighter f1 = new Fighter();
-            Fighter f2 = new Fighter();
+            Fighter f1 = ChooseFighter("Which Digimon do you want to choose?");
+            Fighter f2 = ChooseFighter("Which Digimon do enemy want to choose?");
 
             f1.GetHp();
             f2.GetHp();
 
             int dmgA;
             int dmgB;
-
-            Console.WriteLine("Write Fighter one's name");
-            f1.name = Console.ReadLine();
-
-            Console.WriteLine("Write Fighter two's name");
-            f2.name = Console.ReadLine();
 
             while(f1.IsAlive() && f2.IsAlive())
             {
@@ -61,5 +55,28 @@ namespace FightSim
 
 
         }
+        static Fighter ChooseFighter (string message)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine("Tentomon\nRaremon\nDevidramon\nMegaSeadramon");
+
+            while (true)
+            {
+                string answer = Console.ReadLine();
+
+                if (answer == "Tentomon")
+                {
+                    return new Tentomon();
+                }
+                else if (answer == "2")
+                {
+                    return new Raremon();
+                }
+                else
+                {
+                    Console.WriteLine("Skrvi et siffra");
+                }
+            }
+        } 
     }
 }

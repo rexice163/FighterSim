@@ -10,6 +10,8 @@ namespace FightSim
 {
     class Raremon : Fighter
     {
+        static Random Generator = new Random();
+
         int hp = 150;
 
         static RestRequest request = new RestRequest("Rareamon");
@@ -23,6 +25,10 @@ namespace FightSim
             Console.WriteLine(raremon.name);
 
             Console.ReadLine();
+        }
+        public override int Attack()
+        {
+            return Generator.Next(21);
         }
     }
 }

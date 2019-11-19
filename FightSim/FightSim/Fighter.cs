@@ -16,11 +16,8 @@ namespace FightSim
 
         public string name;
 
-        static Random Generator = new Random();
-
-        public int Attack()
-        {
-            return Generator.Next(21);
+        public virtual int Attack() {
+            return 0;
         }
 
         public void Hurt(int amount)

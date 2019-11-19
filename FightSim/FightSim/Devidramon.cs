@@ -10,6 +10,8 @@ namespace FightSim
 {
     class Devidramon : Fighter
     {
+        static Random Generator = new Random();
+
         int hp = 150;
 
         static RestRequest request = new RestRequest("Devidramon");
@@ -23,6 +25,11 @@ namespace FightSim
             Console.WriteLine(devidramon.name);
 
             Console.ReadLine();
+        }
+
+        public override int Attack()
+        {
+            return Generator.Next(26);
         }
 
         //Console.WriteLine(response.Content);

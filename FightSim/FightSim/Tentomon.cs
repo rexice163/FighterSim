@@ -10,6 +10,8 @@ namespace FightSim
 {
     class Tentomon : Fighter
     {
+        static Random Generator = new Random();
+
         int hp = 125;
 
         static RestRequest request = new RestRequest("Tentomon");
@@ -23,6 +25,10 @@ namespace FightSim
             Console.WriteLine(tentomon.name);
 
             Console.ReadLine();
+        }
+        public override int Attack()
+        {
+            return Generator.Next(16);
         }
     }
 }
