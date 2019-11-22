@@ -10,12 +10,12 @@ namespace FightSim
 {
     class Fighter
     {
-        protected static RestClient client = new RestClient("https://digimon-api.herokuapp.com/api/digimon");
+        //Några basic variabel som behövs, t.ex namn, om de lever eller inte och liv och skada som de tar.
+        public string name;
 
         private int hp = 100;
 
-        public string name;
-
+        //En virtual attack, så man kan overrida det från subklasserna, för att de har olika damage
         public virtual int Attack() {
             return 0;
         }
@@ -29,7 +29,7 @@ namespace FightSim
         {
             return hp > 0;
         }
-        
+        //används till att se hur mycket hp de har.
         public int GetHp()
         {
             return hp;

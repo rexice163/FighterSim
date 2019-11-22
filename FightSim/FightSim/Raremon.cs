@@ -10,9 +10,9 @@ namespace FightSim
 {
     class Raremon : Fighter
     {
-        static Random Generator = new Random();
+        static RestClient client = new RestClient("https://digimon-api.herokuapp.com/api/digimon/name/{name}");
 
-        int hp = 150;
+        static Random Generator = new Random();
 
         static RestRequest request = new RestRequest("Rareamon");
 
@@ -26,6 +26,7 @@ namespace FightSim
 
             Console.ReadLine();
         }
+
         public override int Attack()
         {
             return Generator.Next(21);

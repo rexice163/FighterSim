@@ -12,8 +12,9 @@ namespace FightSim
     {
         static void Main(string[] args)
         {
-            Fighter f1 = ChooseFighter("Which Digimon do you want to choose?");
-            Fighter f2 = ChooseFighter("Which Digimon do enemy want to choose?");
+            //Man väjler två digimons som finns i listan
+            Fighter f1 = ChooseFighter("Which Digimon do you want to choose?\nUse numbers");
+            Fighter f2 = ChooseFighter("Which Digimon do enemy want to choose?\n Use numbers");
 
             f1.GetHp();
             f2.GetHp();
@@ -21,6 +22,8 @@ namespace FightSim
             int dmgA;
             int dmgB;
 
+            Console.Clear();
+            // De slåss tills ena dör eller båda
             while(f1.IsAlive() && f2.IsAlive())
             {
                 dmgA = f1.Attack();
@@ -55,26 +58,44 @@ namespace FightSim
 
 
         }
+
+        //en metod till att kunna välja vilken digimon och den körs två gånger.
         static Fighter ChooseFighter (string message)
         {
             Console.WriteLine(message);
-            Console.WriteLine("Tentomon\nRaremon\nDevidramon\nMegaSeadramon");
+            Console.WriteLine("1.Tentomon\n2.Raremon\n3.Devidramon\n4.MegaSeadramon");
 
             while (true)
             {
                 string answer = Console.ReadLine();
 
-                if (answer == "Tentomon")
+                if (answer == "1")
                 {
+                    Console.WriteLine("You chose Tentomon");
+                    Console.ReadKey();
                     return new Tentomon();
                 }
                 else if (answer == "2")
                 {
+                    Console.WriteLine("You chose Raremon");
+                    Console.ReadKey();
                     return new Raremon();
+                }
+                else if (answer == "3")
+                {
+                    Console.WriteLine("You chose Devidramon");
+                    Console.ReadKey();
+                    return new Devidramon();
+                }
+                else if (answer == "4")
+                {
+                    Console.WriteLine("You chose MegaSeadramon");
+                    Console.ReadKey();
+                    return new MegaSeadramon();
                 }
                 else
                 {
-                    Console.WriteLine("Skrvi et siffra");
+                    Console.WriteLine("Skriv en av dem siffrorna");
                 }
             }
         } 

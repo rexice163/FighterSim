@@ -10,9 +10,9 @@ namespace FightSim
 {
     class MegaSeadramon : Fighter
     {
-        static Random Generator = new Random();
+        static RestClient client = new RestClient("https://digimon-api.herokuapp.com/api/digimon/name/");
 
-        int hp = 175;
+        static Random Generator = new Random();
 
         static RestRequest request = new RestRequest("MegaSeadramon");
 
@@ -22,9 +22,9 @@ namespace FightSim
 
         void Method()
         {
-            Console.WriteLine(megaseadramon.name);
+         Console.WriteLine(megaseadramon.name);
 
-            Console.ReadLine();
+         Console.ReadLine();
         }
         public override int Attack()
         {
